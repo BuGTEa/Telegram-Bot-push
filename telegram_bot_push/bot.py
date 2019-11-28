@@ -1,4 +1,5 @@
 import requests as rq
+import sqlite3
 from .bot_push import *
 
 
@@ -10,7 +11,10 @@ class BOT:
 		self.token = token
 		self.base_url = "https://api.telegram.org/bot"
 		self.chat_id = None
-		self._get_chat_id(self.token)
+		try:
+			self._get_chat_id_by_file()
+		except:
+			self._get_chat_id(self.token)
 
 	def _get_chat_id(self, token=None):
 		if token is None:
@@ -27,6 +31,7 @@ class BOT:
 				return ValueError('Get Chat ID Wrong! Please send a message to bot and try it again.')
 			else:
 				self.chat_id = a['result'][0]['message']['chat']['id']
+				self.save_chat_id_to_sql(self.chat_id)
 
 	def _generate_proxy_settings(self, proxy_ip, proxy_port, proxy_type):
 		if self.proxy:
@@ -43,6 +48,15 @@ class BOT:
 		base_url = f'{self.base_url}{self.token}/'
 		result = bot_push_message(text, base_url, self.chat_id, self.proxy_dict)
 		return result
+
+	def _get_chat_id_by_file(self):
+		with open('chat_id.txt', 'r') as f:
+			self.chat_id = f.read()
+
+	@staticmethod
+	def save_chat_id_to_sql(chat_id):
+		with open('chat_id.txt', 'w+') as f:
+			f.write(chat_id)
 
 	@staticmethod
 	def _validate_proxy_type(proxy_type):

@@ -3,3 +3,4 @@ telegram_bot_push/__pycache__
 dist
 build
 tele_bot_push.egg-info
+.pypirc
