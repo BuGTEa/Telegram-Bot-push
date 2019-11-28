@@ -1,5 +1,4 @@
 import requests as rq
-import sqlite3
 from .bot_push import *
 
 
