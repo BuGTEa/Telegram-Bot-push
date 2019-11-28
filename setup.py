@@ -5,7 +5,7 @@ with open("README.md", "r", encoding='utf-8') as fh:
 
 setup(
 	name='tele-bot-push',
-	version='0.0.2',
+	version='0.0.2.1',
 	author='BuGTEa',
 	author_email='noreply@sir7878.com',
 	url='https://github.com/BuGTEa/Telegram-Bot-push',
