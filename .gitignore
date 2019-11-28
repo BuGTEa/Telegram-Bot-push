@@ -4,3 +4,4 @@ dist
 build
 tele_bot_push.egg-info
 .pypirc
+Examples/chat_id.txt

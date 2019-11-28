@@ -55,7 +55,7 @@ class BOT:
 	@staticmethod
 	def save_chat_id_to_sql(chat_id):
 		with open('chat_id.txt', 'w+') as f:
-			f.write(chat_id)
+			f.writelines(str(chat_id))
 
 	@staticmethod
 	def _validate_proxy_type(proxy_type):

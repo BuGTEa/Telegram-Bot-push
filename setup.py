@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
 	name='tele-bot-push',
-	version='0.0.1',
+	version='0.0.2',
 	author='BuGTEa',
 	author_email='noreply@sir7878.com',
 	url='https://github.com/BuGTEa/Telegram-Bot-push',
